@@ -10,7 +10,7 @@ pipeline{
         stage('Build'){
             steps{
                 echo "Building version ${VERSION} with suffic ${VERSION_RC}"
-                sh 'Building version ${VERSION} with suffic ${VERSION_RC}'
+                sh 'echo "Building version ${VERSION} with suffic ${VERSION_RC}"'
                 sh'''
                 npm install
                 npm run build
