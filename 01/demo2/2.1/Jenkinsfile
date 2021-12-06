@@ -1,11 +1,11 @@
-library identifier:'jenkin-sessions-library@main'
+library identifier:'jenkin-sessions-library@main', retriever:modernSMC([$class:'GitSMCSource',remote:'https://github.com/calamarzo/jenkins-sessions-library.git'])
 
 pipeline{
     agent any
 
     stages{
         stage('Audit Tools'){
-            step{
+            steps{
                 auditTools()
             }
         }
