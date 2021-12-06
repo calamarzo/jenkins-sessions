@@ -11,6 +11,16 @@ pipeline{
     }
 
     stages{
+        stage('Audit Tools'){
+            steps{
+                sh'''
+                git version
+                docker version
+                node --version
+                npm version
+                '''
+            }
+        }
         stage('Build'){
             environment{
                 VERSION_SUFFIX = sh(script: 'if [ "${RC}"=="true"]; then echo -n "${VERSION_RC}+ci.${BUILD_NUMBER}";else echo -n "${VERSION_RC}"; fi',returnStdout: true)
